@@ -1,0 +1,6 @@
+id,customer,amount,category,timestamp
+1,Acme Corp,1200.50,services,2024-01-10T12:00:00
+2,Globex,800.00,retail,2024-01-11T09:15:00
+3,Initech,1500.00,wholesale,2024-01-11T13:45:00
+4,Acme Corp,300.00,retail,2024-01-12T10:30:00
+5,Stark Industries,2000.00,services,2024-01-13T16:05:00

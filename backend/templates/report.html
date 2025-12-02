@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>ETL Report</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 24px; }
+    table { border-collapse: collapse; width: 100%; margin-top: 16px; }
+    th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+    th { background: #f3f3f3; }
+    .summary { margin-top: 12px; }
+  </style>
+</head>
+<body>
+  <h1>ETL Report</h1>
+  <div class="summary">
+    <p><strong>Rows:</strong> {{ metrics.rows }}</p>
+    <p><strong>Total amount:</strong> {{ metrics.amount_total }}</p>
+    <p><strong>Average ticket:</strong> {{ metrics.average_ticket }}</p>
+  </div>
+  <h2>Category breakdown</h2>
+  <ul>
+    {% for category, value in metrics.per_category.items() %}
+      <li>{{ category }}: {{ value }}</li>
+    {% endfor %}
+  </ul>
+  <h2>Records</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Customer</th>
+        <th>Amount</th>
+        <th>Category</th>
+        <th>Timestamp</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for row in rows %}
+      <tr>
+        <td>{{ row.id }}</td>
+        <td>{{ row.customer }}</td>
+        <td>{{ row.amount }}</td>
+        <td>{{ row.category }}</td>
+        <td>{{ row.timestamp }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</body>
+</html>
